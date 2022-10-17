@@ -2,8 +2,7 @@
 
 Second deliverable of Honours Project: Scripts that help analyse data obtained from google play store scraping and to generate automated app store screenshots.
 
-![image](https://user-images.githubusercontent.com/52162785/196124143-4b1ac1fa-7f02-4f7d-a4b9-7fd00180eaf8.png)
-
+![01dbcd8582ef22e261ba7750c3519eae](https://user-images.githubusercontent.com/52162785/196129654-0a0ddbb6-af26-4cb6-939a-cdc8aafe1215.jpeg)
 
 
 There are two folders present in this repository: Droidbot_Script&Data and Google_Play_Scraper_Script&Data
