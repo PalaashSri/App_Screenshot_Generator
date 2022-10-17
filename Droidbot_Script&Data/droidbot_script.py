@@ -25,7 +25,7 @@ for item in nodes:
 
 for i in range(1,len(screenshot_text_map)):
 
-    current_image = Image.open(screenshot_text_map[i][1])
+    current_image = screenshot_text_map[i][1]
 
     title_font = ImageFont.truetype('Roboto/Roboto-Black.ttf',100)
 
@@ -34,7 +34,6 @@ for i in range(1,len(screenshot_text_map)):
     title_text = title_text.replace('"HelloWorld"',"")
     title_text = title_text.replace('<Untitled>',"")
     title_text = re.sub(r"[^a-zA-Z!.?,]+", r" ", title_text)
-    #title_text=title_text.replace(" ",",")
     title_text = re.sub('[!@#$●&•]', '', title_text)
     title_text = re.sub(r'http\S+', '', title_text)
     title_text = re.sub(r'www\S+', '', title_text)
@@ -49,12 +48,19 @@ for i in range(1,len(screenshot_text_map)):
     output_text = ""
     tagged = nltk.pos_tag(list_of_text)
     for k in range(len(tagged)):
-        if tagged[k][1]=="NN" and tagged[k][0]=="search...":
-            output_text = tagged[k][0]+" "+output_text
-        elif (tagged[k][1]=="NN" or tagged[k][1]=="NNS" or tagged[k][1]=="VB" or tagged[k][1]=="VBP") and (len(tagged[k][0])<20):
-            output_text+=tagged[k][0]+","
+        if tagged[k][1]=="NN" and tagged[k][0] == "search...":
+            output_text = tagged[k][0] + " " + output_text
+        elif (tagged[k][1] == "NN" or tagged[k][1] == "NNS" or tagged[k][1] == "VB" or tagged[k][1] == "VBP") and (
+                len(tagged[k][0]) < 20):
+            output_text+=tagged[k][0] + ","
     output_text=output_text.rstrip(",")
-    
+
+    current_image = Image.open(current_image).convert("RGBA")
+    black_image_background = Image.new("RGBA", current_image.size, "BLACK")
+    black_image_background.paste(current_image, mask=current_image)
+
+    current_image = black_image_background.convert("RGBA")
+
     image_editable = ImageDraw.Draw(current_image)
     current_image.save("outputImage/"+screenshot_text_map[i][0]+".png")
     current_image=current_image.resize((900,2000))
@@ -70,7 +76,7 @@ for i in range(1,len(screenshot_text_map)):
     image_editable = ImageDraw.Draw(background)
     output_text = textwrap.fill(text=output_text,width = 60)
     _, _, w, h = image_editable.textbbox((0, 0), output_text, font=title_font)
-    width_position = ((bg_w*20)/100)
-    image_editable.text(((bg_w-w)/2,300),output_text,(255,255,255),font=title_font)
-    background.save("UpdatedImages/"+screenshot_text_map[i][0]+".png")
+    width_position = ((bg_w * 20) / 100)
+    image_editable.text(((bg_w - w) / 2, 300), output_text, (255, 255, 255), font=title_font)
+    background.convert("RGB").save("UpdatedImages/" + screenshot_text_map[i][0] + ".jpeg")
 
