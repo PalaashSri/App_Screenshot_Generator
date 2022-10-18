@@ -78,5 +78,5 @@ for i in range(1,len(screenshot_text_map)):
     _, _, w, h = image_editable.textbbox((0, 0), output_text, font=title_font)
     width_position = ((bg_w * 20) / 100)
     image_editable.text(((bg_w - w) / 2, 300), output_text, (255, 255, 255), font=title_font)
-    background.convert("RGB").save("UpdatedImages/" + screenshot_text_map[i][0] + ".jpeg")
+    background.convert("RGB").save("App_Screenshots/" + screenshot_text_map[i][0] + ".jpeg")
 
