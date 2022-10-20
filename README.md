@@ -1,6 +1,6 @@
 # App_Screenshot_Generator
 
-Second deliverable of Honours Project: Scripts that help analyse data obtained from google play store scraping and to generate automated app store screenshots.
+Second deliverable of Honours Project: Scripts that help analyse data obtained from google play store scraping and to generate automated app store screenshots. This readme provides brief information on the folders present in this repo. The scripts contain detailed comments that provide more information on the code written and its functionality. 
 
 ![01dbcd8582ef22e261ba7750c3519eae](https://user-images.githubusercontent.com/52162785/196129654-0a0ddbb6-af26-4cb6-939a-cdc8aafe1215.jpeg)
 
